@@ -10,7 +10,7 @@ const service = new WeBuyService('uk')
 
 describe('WeBuyService', () => {
   beforeEach(done => setTimeout(done, 500));
-  
+
   it('SuperCategories', async () => {
     const { response } = await service.getSuperCategories({})
     expect(response.data).not.empty
@@ -50,7 +50,7 @@ describe('WeBuyService', () => {
     expect(response.data).not.empty
   });
 
-  it('ProducAvailability', async () => {
+  it('ProductAvailability', async () => {
     const params = <ProductAvailabilityRequest>{
       latitude: 52.0614187,
       longitude: -0.2520458999999721

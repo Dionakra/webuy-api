@@ -19,8 +19,7 @@
     "typescript": "^3.6.4"
   },
   "scripts": {
-    "test": "mocha -r ts-node/register test/**/*.test.ts",
-    "coverage": "nyc -r lcov -e .ts -x \"*.test.ts\" npm run test"
+    "test": "mocha -r ts-node/register test/**/*.test.ts"
   },
   "keywords": [
     "cex",

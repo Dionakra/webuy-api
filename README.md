@@ -1,20 +1,19 @@
-# WeBuy API Documentation
+# WeBuy API Documentation [![Build Status](https://travis-ci.org/Dionakra/webuy-api.svg?branch=master)](https://travis-ci.org/Dionakra/webuy-api)
 Documentation of the API for the WeBuy web applications. The APIs are exactly the same across every WeBuy web app, no matter the region of the store (United Kingdom, Ireland, Spain etc...), so this documentation should work for whatever region you need to extract data.
 
-- [WeBuy API Documentation](#webuy-api-documentation)
-  - [Request & Response](#request--response)
-    - [Requests](#requests)
-    - [Responses](#responses)
-  - [Endpoints](#endpoints)
-    - [Super Categories](#super-categories)
-    - [Product Lines](#product-lines)
-    - [Categories](#categories)
-    - [Search](#search)
-    - [Product Details](#product-details)
-    - [Product Availability](#product-availability)
-    - [Stores](#stores)
-    - [Top Sellers](#top-sellers)
-    - [Most Wanted](#most-wanted)
+- [Request & Response](#request--response)
+	- [Requests](#requests)
+	- [Responses](#responses)
+- [Endpoints](#endpoints)
+	- [Super Categories](#super-categories)
+	- [Product Lines](#product-lines)
+	- [Categories](#categories)
+	- [Search](#search)
+	- [Product Details](#product-details)
+	- [Product Availability](#product-availability)
+	- [Stores](#stores)
+	- [Top Sellers](#top-sellers)
+	- [Most Wanted](#most-wanted)
 
 ## Request & Response
 In this section it is described the common things for all the endpoints, both requests and responses to any store and endpoint.
