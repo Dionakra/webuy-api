@@ -9,7 +9,7 @@ import { expect } from "chai";
 const service = new WeBuyService('uk')
 
 describe('WeBuyService', () => {
-  beforeEach(done => setTimeout(done, 500));
+  beforeEach(done => setTimeout(done, 1000));
 
   it('SuperCategories', async () => {
     const { response } = await service.getSuperCategories({})
