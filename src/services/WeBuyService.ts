@@ -38,6 +38,7 @@ export class WeBuyService {
 
   constructor(country: String) {
     axios.defaults.baseURL = `https://wss2.cex.${country}.webuy.io/v3`
+    axios.defaults.headers.common['user-agent'] = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.82 Safari/537.36'"
   }
 
   private getData<T>(endpoint: string, params: any): Promise<T> {
