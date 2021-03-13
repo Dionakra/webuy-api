@@ -1,9 +1,9 @@
 
 import { WeBuyService } from "../src/services/WeBuyService";
-import { ProductLinesRequest } from "../src/models/requests/ProductLinesRequest"
-import { CategoriesRequest } from "../src/models/requests/CategoriesRequest";
-import { SearchRequest } from "../src/models/requests/SearchRequest";
-import { ProductAvailabilityRequest } from "../src/models/requests/ProductAvailabilityRequest";
+import ProductLinesRequest from "../src/models/requests/ProductLinesRequest"
+import CategoriesRequest from "../src/models/requests/CategoriesRequest";
+import SearchRequest from "../src/models/requests/SearchRequest";
+import ProductAvailabilityRequest from "../src/models/requests/ProductAvailabilityRequest";
 import { expect } from "chai";
 
 const service = new WeBuyService('uk')

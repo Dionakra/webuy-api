@@ -1,3 +1,3 @@
-export interface CategoriesRequest {
+export default interface CategoriesRequest {
   productLineIds: Number[]
 }

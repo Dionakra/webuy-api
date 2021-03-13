@@ -1,4 +1,4 @@
-export interface FeaturedProduct {
+export default interface FeaturedProduct {
   boxId: String,
   boxName: String,
   categoryName: String,

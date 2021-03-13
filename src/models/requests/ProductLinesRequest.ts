@@ -1,3 +1,3 @@
-export interface ProductLinesRequest {
+export default interface ProductLinesRequest {
   superCatIds: Number[]
 }

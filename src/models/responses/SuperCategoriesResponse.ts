@@ -1,6 +1,6 @@
-import { ErrorResponse } from './ErrorResponse';
+import ErrorResponse from './ErrorResponse';
 
-export interface SuperCategoriesResponse {
+export default interface SuperCategoriesResponse {
   response: {
     ack: String,
     data: {
@@ -10,7 +10,7 @@ export interface SuperCategoriesResponse {
   }
 }
 
-export interface SuperCategory {
+interface SuperCategory {
   superCatId: Number,
   superCatFriendlyName: String
 }

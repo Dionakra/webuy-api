@@ -1,57 +1,60 @@
-import axios from 'axios'
+import fetch from 'node-fetch'
 import Endpoints from '../Endpoints';
-import { SuperCategoriesResponse } from '../models/responses/SuperCategoriesResponse';
-import { ProductLinesRequest } from '../models/requests/ProductLinesRequest';
-import { ProductAvailabilityResponse } from '../models/responses/ProductAvailabilityResponse';
-import { CategoriesRequest } from '../models/requests/CategoriesRequest';
-import { CategoriesResponse } from '../models/responses/CategoriesResponse';
-import { ProductLinesResponse } from '../models/responses/ProductLinesResponse';
-import { SuperCategoriesRequest } from '../models/requests/SuperCategoriesRequest';
-import { SearchRequest } from '../models/requests/SearchRequest';
-import { SearchResponse } from '../models/responses/SearchResponse';
-import { ProductDetailsRequest } from '../models/requests/ProductDetailsRequest';
-import { ProductDetailsResponse } from '../models/responses/ProductDetailsResponse';
-import { ProductAvailabilityRequest } from '../models/requests/ProductAvailabilityRequest';
-import { StoresRequest } from '../models/requests/StoresRequest';
-import { StoresResponse } from '../models/responses/StoresResponse';
-import { TopSellersRequest } from '../models/requests/TopSellersRequest';
-import { TopSellersResponse } from '../models/responses/TopSellersResponse';
-import { MostWantedRequest } from '../models/requests/MostWantedRequest';
-import { MostWantedResponse } from '../models/responses/MostWantedResponse';
+import SuperCategoriesResponse from '../models/responses/SuperCategoriesResponse';
+import ProductLinesRequest from '../models/requests/ProductLinesRequest';
+import ProductAvailabilityResponse from '../models/responses/ProductAvailabilityResponse';
+import CategoriesRequest from '../models/requests/CategoriesRequest';
+import CategoriesResponse from '../models/responses/CategoriesResponse';
+import ProductLinesResponse from '../models/responses/ProductLinesResponse';
+import SuperCategoriesRequest from '../models/requests/SuperCategoriesRequest';
+import SearchRequest from '../models/requests/SearchRequest';
+import SearchResponse from '../models/responses/SearchResponse';
+import ProductDetailsRequest from '../models/requests/ProductDetailsRequest';
+import ProductDetailsResponse from '../models/responses/ProductDetailsResponse';
+import ProductAvailabilityRequest from '../models/requests/ProductAvailabilityRequest';
+import StoresRequest from '../models/requests/StoresRequest';
+import StoresResponse from '../models/responses/StoresResponse';
+import TopSellersRequest from '../models/requests/TopSellersRequest';
+import TopSellersResponse from '../models/responses/TopSellersResponse';
+import MostWantedRequest from '../models/requests/MostWantedRequest';
+import MostWantedResponse from '../models/responses/MostWantedResponse';
 
-axios.defaults.paramsSerializer = params => {
-  let str = ""
-  for (let key in params) {
-    if (params.hasOwnProperty(key)) {
-      const value = params[key]
-      if (Array.isArray(value)) {
-        str += `&${key}=[${value.join(',')}]`
-      } else {
-        str += `&${key}=${value}`
-      }
-    }
-  }
-  return str
-}
+
 
 export class WeBuyService {
+  private baseUrl: string = "";
 
   constructor(country: String) {
-    axios.defaults.baseURL = `https://wss2.cex.${country}.webuy.io/v3`
-    axios.defaults.headers.common['user-agent'] = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.82 Safari/537.36'"
+    this.baseUrl = `https://wss2.cex.${country}.webuy.io/v3`
   }
 
-  private getData<T>(endpoint: string, params: any): Promise<T> {
-    return new Promise<T>((resolve, reject) => {
-      axios
-        .get<T>(endpoint, { params })
-        .then(res => {
-          resolve(res.data)
-        })
-        .catch(err => {
-          reject(err)
-        })
-    })
+  private async getData<T>(endpoint: string, params: any): Promise<T> {
+    const data = await fetch(`${this.baseUrl}${endpoint}${this.strParams(params)}`, {
+      "headers": {
+        "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
+        "accept-language": "en-GB,en-US;q=0.9,en;q=0.8",
+        "cache-control": "max-age=0",
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.82 Safari/537.36'  "
+      },
+      "method": "GET"
+    }).then(data => data.json())
+
+    return <T>data;
+  }
+
+  private strParams(params: any): String {
+    let str = "?k=k"
+    for (let key in params) {
+      if (params.hasOwnProperty(key)) {
+        const value = params[key]
+        if (Array.isArray(value)) {
+          str += `&${key}=[${value.join(',')}]`
+        } else {
+          str += `&${key}=${value}`
+        }
+      }
+    }
+    return str
   }
 
   public getSuperCategories(params: SuperCategoriesRequest): Promise<SuperCategoriesResponse> {

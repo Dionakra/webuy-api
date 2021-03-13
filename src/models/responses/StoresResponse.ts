@@ -1,6 +1,6 @@
-import { ErrorResponse } from "./ErrorResponse";
+import ErrorResponse from "./ErrorResponse";
 
-export interface StoresResponse {
+export default interface StoresResponse {
   response: {
     ack: String,
     data: {
@@ -10,7 +10,7 @@ export interface StoresResponse {
   }
 }
 
-export interface Store {
+interface Store {
   storeId: Number,
   storeName: String,
   regionName: String,

@@ -1,4 +1,4 @@
-export interface SearchRequest {
+export default interface SearchRequest {
   categoryIds?: Number[],
   q?: String,
   inStock?: Number,

@@ -1,3 +1,3 @@
-export interface ProductDetailsRequest {
+export default interface ProductDetailsRequest {
   
 }

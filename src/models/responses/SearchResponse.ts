@@ -1,6 +1,6 @@
-import { ErrorResponse } from "./ErrorResponse";
+import ErrorResponse from "./ErrorResponse";
 
-export interface SearchResponse {
+export default interface SearchResponse {
   response: {
     ack: String,
     data: {
@@ -13,7 +13,7 @@ export interface SearchResponse {
   }
 }
 
-export interface Box {
+interface Box {
   boxId: String,
   masterBoxId: String,
   boxName: String,
@@ -54,7 +54,7 @@ export interface Facet {
 
 export interface AttributeCount {
   name: String,
-  id: Number, 
+  id: Number,
   count: Number
 }
 

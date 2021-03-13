@@ -1,7 +1,7 @@
-import { FeaturedProduct } from "./FeaturedProduct";
-import { ErrorResponse } from "./ErrorResponse";
+import FeaturedProduct from "./FeaturedProduct";
+import ErrorResponse from "./ErrorResponse";
 
-export interface TopSellersResponse {
+export default interface TopSellersResponse {
   response: {
     ack: String,
     data: {
@@ -9,5 +9,4 @@ export interface TopSellersResponse {
     },
     error: ErrorResponse
   }
-  
 }

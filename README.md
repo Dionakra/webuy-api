@@ -1,8 +1,4 @@
-# WeBuy API Documentation ![Build Status](https://github.com/Dionakra/webuy-api/workflows/Node.js%20CI/badge.svg)
-
-> **DISCLAIMER** Search Products endpoint seem to be protected with Cloudflare, so running it from the commandline without sending the proper headers and cookies return a **403**, so you will need to work-around this, but the API seems to be working.
-
-
+# WeBuy API Documentation
 Documentation of the API for the WeBuy web applications. The APIs are exactly the same across every WeBuy web app, no matter the region of the store (United Kingdom, Ireland, Spain etc...), so this documentation should work for whatever region you need to extract data.
 
 - [Request & Response](#request--response)

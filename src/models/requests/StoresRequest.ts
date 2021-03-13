@@ -1,3 +1,3 @@
-export interface StoresRequest {
+export default interface StoresRequest {
   
 }
